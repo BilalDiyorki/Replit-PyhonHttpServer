@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mail App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .poem-container {
+      margin-top: 50px;
+    }
+    .card {
+      background-color: #fff; /* Kart arka plan rengi */
+      border-radius: 15px; /* Kart kenar yuvarlanma */
+      border: none; /* Kart sınırı */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Kart gölgesi */
+      padding: 20px; /* Kart iç boşluğu */
+    }
+    h1 {
+      color: #007bff; /* Başlık metni rengi */
+    }
+    .btn-container {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1 class="display-4 mt-5 mb-4">Python HTTP Server</h1>
+      </div>
+    </div>
+    <div class="row justify-content-center poem-container">
+      <div class="col-md-8">
+        <div class="card shadow-sm">
+          <p>
+            Merhaba arkadaşlar, bu bir Python HTTP sunucusudur. Kayıt oluşturma ve giriş yapma işlemleri yapılabilmektedir.
+            Asıl amaç RSA şifreleme yöntemini kullanarak şifreleme işlemini gerçekleştiren ve çözen bir mail uygulaması oluşturmaktır.
+            Bu uygulama ile şifreli mail oluşturabilir ve anahtar çiftinizin public kısmını paylaşırken private kısmını saklayabilirsiniz.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center btn-container">
+      <div class="col-6">
+        <a href="/login" class="btn btn-primary btn-block col-12 ">Login</a>
+      </div>
+      <div class="col-6">
+        <a href="/register" class="btn btn-success btn-block col-12 ">Register</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
