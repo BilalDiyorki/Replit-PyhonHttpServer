@@ -15,58 +15,58 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS users (
                     )''')
 conn.commit()
 
+
 # Kullanıcı sınıfı
 class User:
-    def __init__(self, username, first_name, last_name, password):
-        self.username = username
-        self.first_name = first_name
-        self.last_name = last_name
-        self.password = password
 
-    def save(self):
-        # Veritabanını aç
-        conn = sqlite3.connect('users.db')
-        cursor = conn.cursor()
+  def __init__(self, username, first_name, last_name, password):
+    self.username = username
+    self.first_name = first_name
+    self.last_name = last_name
+    self.password = password
 
-        # Kullanıcıyı ekle
-        cursor.execute('''INSERT INTO users (username, first_name, last_name, password)
+  def save(self):
+    # Veritabanını aç
+    conn = sqlite3.connect('users.db')
+    cursor = conn.cursor()
+
+    # Kullanıcıyı ekle
+    cursor.execute(
+      '''INSERT INTO users (username, first_name, last_name, password)
                           VALUES (?, ?, ?, ?)''',
-                       (self.username, self.first_name, self.last_name, self.password))
+      (self.username, self.first_name, self.last_name, self.password))
 
-        # Değişiklikleri kaydet ve veritabanını kapat
-        conn.commit()
-        conn.close()
+    # Değişiklikleri kaydet ve veritabanını kapat
+    conn.commit()
+    conn.close()
 
-    @staticmethod
-    def get_all_users():
-        # Veritabanını aç
-        conn = sqlite3.connect('users.db')
-        cursor = conn.cursor()
+  @staticmethod
+  def get_all_users():
+    # Veritabanını aç
+    conn = sqlite3.connect('users.db')
+    cursor = conn.cursor()
 
-        # Tüm kullanıcıları al
-        cursor.execute('''SELECT * FROM users''')
-        users = cursor.fetchall()
+    # Tüm kullanıcıları al
+    cursor.execute('''SELECT * FROM users''')
+    users = cursor.fetchall()
 
-        # Veritabanını kapat
-        conn.close()
+    # Veritabanını kapat
+    conn.close()
 
-        # Her bir kullanıcıyı bir sözlük içinde sakla
-        user_list = []
-        for user in users:
-            user_dict = {
-                'id': user[0],
-                'username': user[1],
-                'first_name': user[2],
-                'last_name': user[3],
-                'password': user[4]
-                # Diğer kullanıcı özelliklerini ekleyebilirsiniz
-            }
-            user_list.append(user_dict)
+    # Her bir kullanıcıyı bir sözlük içinde sakla
+    user_list = []
+    for user in users:
+      user_dict = {
+        'id': user[0],
+        'username': user[1],
+        'first_name': user[2],
+        'last_name': user[3],
+        'password': user[4]
+        # Diğer kullanıcı özelliklerini ekleyebilirsiniz
+      }
+      user_list.append(user_dict)
 
-        return user_list
-
-
-        
+    return user_list
 
 
 # Örnek kullanıcılar ekleyelim
